@@ -10,3 +10,6 @@ To do lists:
 - CSV download.
 - Stages manager.
 - Animation manager.
+
+Problems:
+- Rich text problem, since the tags work properly only when they are fully read.

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public class MessageManager : MonoBehaviour {
 
@@ -14,17 +15,53 @@ public class MessageManager : MonoBehaviour {
 	private bool allowMessageSkip;
 	private bool messageFlowFinish;
 
-	private List<string> allMessages = new List<string>();
+	public List<DialogMessage> messagesList;
 	private string currentMessage;
 	private string displayMessage;
 	private int messageIndex;
 	private int messageCharacterIndex;
 
-	private void Start ()
+	public class DialogMessage {
+		public int 		Id { get; set; }
+		public string 	Character { get; set; }
+		public bool 	Skipable { get; set; }
+		public bool 	Voiced { get; set; }
+		public bool 	Left { get; set; }
+		public string 	JpText { get; set; }
+		public string 	EnText { get; set; }
+	}
+
+	private static MessageManager messageInstance;
+	
+	public static MessageManager instance
+	{
+		get {
+			if(messageInstance == null) {
+				messageInstance = GameObject.FindObjectOfType<MessageManager>();
+				DontDestroyOnLoad(messageInstance.gameObject);
+			}
+			return messageInstance;
+		}
+	}
+	
+	void Awake() 
+	{
+		if(messageInstance == null) {
+			messageInstance = this;
+			DontDestroyOnLoad(this);
+		}
+		else {
+			if(this != messageInstance)
+				Destroy(this.gameObject);
+		}
+	}
+
+	private void OnEnable ()
 	{
 		CheckTextEnabled ();
+		CreateList();
 		ResetMessageFrameCounter ();
-		ReadCSV ();
+		ReadMessagesFromCSV (Constants.MF_A01);
 	}
 
 	private void Update ()
@@ -44,22 +81,26 @@ public class MessageManager : MonoBehaviour {
 		}
 	}
 
-	private void OnMessageTap ()
-	{
-		if (Input.touchCount > Constants.ZERO) {
-			GetNextMessage ();
-		}
-		else if (Input.GetMouseButtonDown(Constants.ZERO)) {
-			GetNextMessage ();
-		}
+	private void CreateList () {
+		messagesList = new List<DialogMessage>();
 	}
 
-	private void ReadCSV () 
+
+	public void ReadMessagesFromCSV (string messageFileName) 
 	{
-		List<Dictionary<string,object>> data = CSVReader.Read (Constants.EXAMPLE_CSV);
+		List<Dictionary<string,object>> data = CSVReader.Read (messageFileName);
 		for (int i = Constants.ZERO; i < data.Count; i++) {
-			if (Application.loadedLevelName == (string)data[i][Constants.MES_SCENE])
-				allMessages.Add((string)data[i][Constants.MES_JPTEXT]);
+			if (Application.loadedLevelName == (string)data[i][Constants.MES_SCENE]) {
+				messagesList.Add( new DialogMessage () {
+					Id 			= (int)data[i][Constants.MES_ID],
+					Character 	= (string)data[i][Constants.MES_CHARACTER],
+					Skipable 	= bool.Parse((string)data[i][Constants.MES_SKIPABLE]),
+					Voiced 		= bool.Parse((string)data[i][Constants.MES_VOICED]),
+					Left 		= bool.Parse((string)data[i][Constants.MES_LEFT]),
+					JpText 		= (string)data[i][Constants.MES_JPTEXT],
+					EnText 		= (string)data[i][Constants.MES_ENTEXT]
+				});
+			}
 		}
 	}
 
@@ -84,6 +125,16 @@ public class MessageManager : MonoBehaviour {
 		displayMessage = currentMessage;
 	}
 
+	private void OnMessageTap ()
+	{
+		if (Input.touchCount > Constants.ZERO) {
+			GetNextMessage ();
+		}
+		else if (Input.GetMouseButtonDown(Constants.ZERO)) {
+			GetNextMessage ();
+		}
+	}
+
 	private string MessageFlow () {
 		if (!messageFlowFinish) {
 			messageFrameSkipped += messageSpeed;
@@ -91,7 +142,7 @@ public class MessageManager : MonoBehaviour {
 				messageFrameSkipped = Constants.MES_DISPLAY_COUNTER;
 			
 			if (messageFrameSkipped == Constants.MES_DISPLAY_COUNTER) {
-				currentMessage = (string)allMessages[messageIndex];
+				currentMessage = (string)messagesList[messageIndex].JpText;
 				displayMessage = currentMessage.Substring(Constants.ZERO, messageCharacterIndex);
 				if (messageCharacterIndex < currentMessage.Length)
 					messageCharacterIndex++;
@@ -101,12 +152,10 @@ public class MessageManager : MonoBehaviour {
 		return displayMessage;
 	}
 
-
-
 	public void GetNextMessage () {
 		if (displayMessage.Length == currentMessage.Length) {
-			if (messageIndex + Constants.ONE < allMessages.Count){
-				if (messageIndex + Constants.ONE < allMessages.Count) 
+			if (messageIndex + Constants.ONE < messagesList.Count){
+				if (messageIndex + Constants.ONE < messagesList.Count) 
 					messageIndex++;
 				ResetMessageFrameCounter ();
 				ResetMessageIndex ();
