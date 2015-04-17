@@ -4,9 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class MessageManager : MonoBehaviour {
+public class MessageManager : Singleton<MonoBehaviour> {
 
 	public Text messageTextBox;
+	public bool messageOver;
 
 	[Range(1, 20)]
 	public int messageSpeed;
@@ -31,37 +32,18 @@ public class MessageManager : MonoBehaviour {
 		public string 	EnText { get; set; }
 	}
 
-	private static MessageManager messageInstance;
-	
-	public static MessageManager instance
-	{
-		get {
-			if(messageInstance == null) {
-				messageInstance = GameObject.FindObjectOfType<MessageManager>();
-				DontDestroyOnLoad(messageInstance.gameObject);
-			}
-			return messageInstance;
-		}
-	}
-	
-	void Awake() 
-	{
-		if(messageInstance == null) {
-			messageInstance = this;
-			DontDestroyOnLoad(this);
-		}
-		else {
-			if(this != messageInstance)
-				Destroy(this.gameObject);
-		}
-	}
-
 	private void OnEnable ()
 	{
+		MessageStart ();
 		CheckTextEnabled ();
 		CreateList();
 		ResetMessageFrameCounter ();
 		ReadMessagesFromCSV (Constants.MF_A01);
+	}
+
+	private void OnDisable ()
+	{
+		DisableMessage ();
 	}
 
 	private void Update ()
@@ -71,9 +53,19 @@ public class MessageManager : MonoBehaviour {
 		OnMessageTap ();
 	}
 
+	private void MessageStart ()
+	{
+		messageOver = false;
+	}
+
+	private void MessageEnd ()
+	{
+		messageOver = true;
+	}
+
 	private void CheckTextEnabled ()
 	{
-		if (messageTextBox == null) {
+		if (!messageTextBox) {
 			if (GameObject.Find(Constants.MES_TEXT_BOX)) 
 				messageTextBox = GameObject.Find(Constants.MES_TEXT_BOX).GetComponent<Text>();
 			else
@@ -86,7 +78,7 @@ public class MessageManager : MonoBehaviour {
 	}
 
 
-	public void ReadMessagesFromCSV (string messageFileName) 
+	private void ReadMessagesFromCSV (string messageFileName) 
 	{
 		List<Dictionary<string,object>> data = CSVReader.Read (messageFileName);
 		for (int i = Constants.ZERO; i < data.Count; i++) {
@@ -119,7 +111,7 @@ public class MessageManager : MonoBehaviour {
 		messageFlowFinish = false;
 	}
 
-	public void DisplayFullMessage () {
+	private void DisplayFullMessage () {
 		messageFlowFinish = true;	
 		messageCharacterIndex = currentMessage.Length;
 		displayMessage = currentMessage;
@@ -152,19 +144,25 @@ public class MessageManager : MonoBehaviour {
 		return displayMessage;
 	}
 
-	public void GetNextMessage () {
+	private void GetNextMessage () {
 		if (displayMessage.Length == currentMessage.Length) {
 			if (messageIndex + Constants.ONE < messagesList.Count){
 				if (messageIndex + Constants.ONE < messagesList.Count) 
 					messageIndex++;
 				ResetMessageFrameCounter ();
 				ResetMessageIndex ();
-				
 			}
-			else 
+			else {
+				MessageEnd ();
 				Debug.Log ("Finished all messages");
+			}
 		}
 		else 
 			DisplayFullMessage ();
+	}
+
+	private void DisableMessage () 
+	{
+		
 	}
 }

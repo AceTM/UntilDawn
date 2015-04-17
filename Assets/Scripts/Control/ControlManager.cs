@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ControlManager : MonoBehaviour {
+public class ControlManager : Singleton<MonoBehaviour> {
 	enum ControlTypes {
 		PointAndClick,
 		ThirdPerson,
@@ -16,31 +16,5 @@ public class ControlManager : MonoBehaviour {
 		MobileTouch,
 	}
 	ControllerDeviceTypes controllerType;
-
-	private static ControlManager controlInstance;
 	
-	public static ControlManager Instance
-	{
-		get {
-			if(controlInstance == null) {
-				controlInstance = GameObject.FindObjectOfType<ControlManager>();				
-				DontDestroyOnLoad(controlInstance.gameObject);
-			}
-			return controlInstance;
-		}
-	}
-	
-	void Awake() 
-	{
-		if(controlInstance == null) {
-			controlInstance = this;
-			DontDestroyOnLoad(this);
-		}
-		else {
-			if(this != controlInstance)
-				Destroy(this.gameObject);
-		}
-	}
-
-
 }

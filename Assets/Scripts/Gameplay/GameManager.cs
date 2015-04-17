@@ -1,29 +1,63 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
-	private static GameManager gameInstance;
-	
-	public static GameManager Instance
+public class GameManager : Singleton<MonoBehaviour> {
+	public enum GameState {
+		Uncontrolable,
+		Menu,
+		Message,
+		Gameplay
+	}
+	public GameState gameState;
+
+	private delegate void CallMode ();
+	private CallMode currentMode;
+
+	private void Awake ()
 	{
-		get {
-			if(gameInstance == null) {
-				gameInstance = GameObject.FindObjectOfType<GameManager>();				
-				DontDestroyOnLoad(gameInstance.gameObject);
-			}
-			return gameInstance;
-		}
+		gameState = GameState.Uncontrolable;
 	}
 
-	void Awake() 
+	private void ModeHandler ()
 	{
-		if(gameInstance == null) {
-			gameInstance = this;
-			DontDestroyOnLoad(this);
-		}
-		else {
-			if(this != gameInstance)
-				Destroy(this.gameObject);
+		currentMode ();
+	}
+
+	private void MessageMode ()
+	{
+
+	}
+
+	private void UncontrolableMode ()
+	{
+
+	}
+
+	private void MenuMode () 
+	{
+
+	}
+
+	private void GameplayMode ()
+	{
+
+	}
+
+	public void ToggleMode (GameState state)
+	{
+		switch (gameState) {
+		case GameState.Uncontrolable:
+			currentMode = UncontrolableMode;
+			break;
+		case GameState.Menu:
+			currentMode = MenuMode;
+			break;
+		case GameState.Message:
+			currentMode = MessageMode;
+			break;
+		case GameState.Gameplay:
+			currentMode = GameplayMode;
+			break;
 		}
 	}
 }

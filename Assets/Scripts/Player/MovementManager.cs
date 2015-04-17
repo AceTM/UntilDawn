@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MovementManager : MonoBehaviour {
+public class MovementManager : Singleton<MonoBehaviour> {
 	
 	public float moveDistance;
 	public float moveSpeed;
@@ -16,31 +16,6 @@ public class MovementManager : MonoBehaviour {
 	
 	private float xAxis;
 	private float yAxis;
-
-	private static MovementManager movementInstance;
-
-	public static MovementManager Instance
-	{
-		get {
-			if(movementInstance == null) {
-				movementInstance = GameObject.FindObjectOfType<MovementManager>();				
-				DontDestroyOnLoad(movementInstance.gameObject);
-			}
-			return movementInstance;
-		}
-	}
-	
-	void Awake() 
-	{
-		if(movementInstance == null) {
-			movementInstance = this;
-			DontDestroyOnLoad(this);
-		}
-		else {
-			if(this != movementInstance)
-				Destroy(this.gameObject);
-		}
-	}
 
 	void Start () {
 //		animator = GetComponent<Animator>();

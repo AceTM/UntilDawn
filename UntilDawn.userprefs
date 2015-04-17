@@ -1,9 +1,15 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\Dr Prison\Assets\Scripts\Fix\StoryMenu\EventStoryMenu.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\System\TransformHandler.cs">
     <Files>
-      <File FileName="..\Dr Prison\Assets\Scripts\Fix\ConvertScene.cs" Line="26" Column="2" />
-      <File FileName="..\Dr Prison\Assets\Scripts\Fix\StoryMenu\EventStoryMenu.cs" Line="394" Column="4" />
+      <File FileName="Assets\Scripts\Resource\CSVReader.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\Singleton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gameplay\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Interface\MessageManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Player\MovementManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Control\ControlManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Temporary\Delegates.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\System\TransformHandler.cs" Line="12" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
