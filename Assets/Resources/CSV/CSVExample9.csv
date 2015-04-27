@@ -1,0 +1,4 @@
+Scene,Character,Skipable,Voiced,Left,JPText,ENText
+TextManager,Narrator,TRUE,FALSE,TRUE,<color=#ffa500ff>アジア</color>最大級の企業・業界データベースと多数の専門アナリストを有する株式会社ユーザベース。企業・産業分析を行うための情報プラットフォーム「SPEEDA（スピーダ）」と、経済ニュースに特化したキュレーションサービス「NewsPicks（ニューズピックス）」の２つの注目のサービスを展開中。フランジアでは、それらのプロダクトに関わる社内システムの構築をお手伝いさせていただいております。今回のオフショア開発についてお話を伺いました,Some text to test out.
+TextManager,Chara1,TRUE,FALSE,FALSE,もともと僕は、社会人になってからずっと、11年ほど出版社で本をつくる仕事をしていました。雑誌、本、あとWebもちょっとやっていました。ご存知の通り今の出版業界は、インターネットに押されて本が売れなくなってきています。電車に乗っていてもスマートフォンを見てる人が圧倒的に多く、それが普通の風景になっています。,More texts to test out.
+TextManager,Narrator,TRUE,FALSE,TRUE,この中でコンテンツを売る仕組みを作らないと、出版やコンテンツビジネスの市場はなくなってしまうのではないか、と危機感を感じていました。そのための仕組みをつくり、そのうえでコンテンツをつくる会社として、ピースオブケイクをはじめました。,Last texts to text out.

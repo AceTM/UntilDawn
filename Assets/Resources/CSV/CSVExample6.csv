@@ -1,0 +1,3 @@
+Scene,Character,Skipable,Voiced,JPText,ENText
+TextManager,Narrator,TRUE,FALSE,アジア最大級の企業・業界データベースと多数の専門アナリストを有する株式会社ユーザベース。企業・産業分析を行うための情報プラットフォーム「SPEEDA（スピーダ）」と、経済ニュースに特化したキュレーションサービス「NewsPicks（ニューズピックス）」の２つの注目のサービスを展開中。フランジアでは、それらのプロダクトに関わる社内システムの構築をお手伝いさせていただいております。今回のオフショア開発についてお話を伺いました,Some text to test out.
+TextManager,Chara1,TRUE,FALSE,Text,More texts to test out.
