@@ -1,15 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\System\TransformHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\PlayerPrefsEditor\PlayerPrefsEditor.cs">
     <Files>
-      <File FileName="Assets\Scripts\Resource\CSVReader.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\Singleton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Gameplay\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Interface\MessageManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Player\MovementManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Control\ControlManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Temporary\Delegates.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\System\TransformHandler.cs" Line="12" Column="1" />
+      <File FileName="Assets\Scripts\Common\Constants.cs" Line="23" Column="54" />
+      <File FileName="Assets\Scripts\Behaviours\PlayerBehaviour.cs" Line="39" Column="3" />
+      <File FileName="..\Ultimate-Unity-2D-Tutorial-Anoxemia\2D-Tutorial\Assets\Scripts\Bahaviour\GameBehaviour.cs" Line="101" Column="2" />
+      <File FileName="Assets\Scripts\Managers\Game\GameRoot.cs" Line="194" Column="6" />
+      <File FileName="Assets\Scripts\Behaviours\GameBehaviour.cs" Line="37" Column="22" />
+      <File FileName="..\Ultimate-Unity-2D-Tutorial-Anoxemia\2D-Tutorial\Assets\Scripts\Bahaviour\Nature\InteractionEffects\BaseInteractionGenerator.cs" Line="25" Column="32" />
+      <File FileName="Assets\Editor\PlayerPrefsEditor\PlayerPrefsEditor.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
