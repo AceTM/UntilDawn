@@ -1,14 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Editor\PlayerPrefsEditor\PlayerPrefsEditor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Debugs\PlayerPrefManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Common\Constants.cs" Line="23" Column="54" />
-      <File FileName="Assets\Scripts\Behaviours\PlayerBehaviour.cs" Line="39" Column="3" />
-      <File FileName="..\Ultimate-Unity-2D-Tutorial-Anoxemia\2D-Tutorial\Assets\Scripts\Bahaviour\GameBehaviour.cs" Line="101" Column="2" />
-      <File FileName="Assets\Scripts\Managers\Game\GameRoot.cs" Line="194" Column="6" />
-      <File FileName="Assets\Scripts\Behaviours\GameBehaviour.cs" Line="37" Column="22" />
-      <File FileName="..\Ultimate-Unity-2D-Tutorial-Anoxemia\2D-Tutorial\Assets\Scripts\Bahaviour\Nature\InteractionEffects\BaseInteractionGenerator.cs" Line="25" Column="32" />
-      <File FileName="Assets\Editor\PlayerPrefsEditor\PlayerPrefsEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Debugs\PlayerPrefManager.cs" Line="127" Column="64" />
+      <File FileName="Assets\Scripts\Common\Constants.cs" Line="34" Column="48" />
+      <File FileName="Assets\Scripts\Behaviours\PlayerBehaviour.cs" Line="1" Column="1" />
+      <File FileName="..\Ultimate-Unity-2D-Tutorial-Anoxemia\2D-Tutorial\Assets\Scripts\Bahaviour\GameBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Managers\Game\GameRoot.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Behaviours\GameBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\PoolManager\PoolManagerEditor.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Models\PlayerPreference.cs" Line="90" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

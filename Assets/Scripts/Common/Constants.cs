@@ -12,9 +12,11 @@ public class Constants{
 	};
 
 	// Because I don't like numbers
+	public const int MIN_ONE = -1;
 	public const int ZERO = 0;
 	public const int ONE = 1;
 	public const int TWO = 2;
+	public const int TEN = 10;
 
 	// CSV Related Constants
 	public const string EXAMPLE_CSV = "CSV/CSVExample10";
@@ -37,6 +39,30 @@ public class Constants{
 
 	// Message files
 	public const string MF_A01 = "CSV/CSVExample10";
+
+	// String constants
+	public const string EMPTY = "";
+	public const string SPACE = " ";
+	public const string UNDERSCORE = "_";
+	public const string DOT = ".";
+	public const string RESO_TIME = " x "; 	
+	public const string STRING = "string";
+	public const string INTEGER = "integer";
+	public const string REAL = "real";
+
+	// Windows registry
+	public const string WIN_REG = @"Software\";
+	public const string WIN_SLASH = @"\";
+
+	// MAC Registry
+	public const string MAC_REG = "/Library/Preferences/unity.";
+	public const string PLIST = "plist";
+	public const string PLIST_FILE = ".plist";
+	public const string DICT = "dict";
+	public const string PLUTIL = "plutil";
+	public const string CONVERT_XML = "-convert xml1 \"";
+	public const string CONVERT_BIN = " -convert binary1 \"";
+	public const string MAC_SLASH = "\"";
 
 	// Application
 	public const string LEVELS_PASSED = "LevelsPassed";
