@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\ComboBoxEditor\ComboBoxEditor.cs" />
      <Compile Include="Assets\Editor\PlayerPrefsEditor\PlayerPrefStore.cs" />
      <Compile Include="Assets\Editor\PlayerPrefsEditor\PlayerPrefsEditor.cs" />
      <Compile Include="Assets\Editor\PoolManager\PoolManagerEditor.cs" />
-     <None Include="Assets\UnityChan2D\Demo\Sounds\Voice\unity-chan_voice_list.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

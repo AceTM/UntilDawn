@@ -46,9 +46,6 @@ public class Constants{
 	public const string UNDERSCORE = "_";
 	public const string DOT = ".";
 	public const string RESO_TIME = " x "; 	
-	public const string STRING = "string";
-	public const string INTEGER = "integer";
-	public const string REAL = "real";
 
 	// Windows registry
 	public const string WIN_REG = @"Software\";
@@ -71,4 +68,10 @@ public class Constants{
 
 	// Math
 	public const float FLOATING_FORCE = 300f; //Newton
+
+	// Variables
+	public const string STRING = "string";
+	public const string INTEGER = "integer";
+	public const string REAL = "real";
+	public const string FLOAT = "float";
 }
