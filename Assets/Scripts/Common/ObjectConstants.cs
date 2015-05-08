@@ -10,4 +10,14 @@ public class ObjectConstants {
 	public const string PREF_SAVE = "SaveButton";
 	public const string PREF_FIELD = "PrefField";
 	public const string PREF_COMBO = "ComboBox";
+
+	// ConsoleLog names
+	public const string LOG_MES_WIN = "LogMessage";
+	public const string LOG_MEX_TEX = "LogText";
+	public const string LOG_MES_ICO = "LogIcon";
+	public const string LOG_MES_CLO = "LogClose";
+	public const string LOG_MES_HIS = "LogHistory";
+
+	// Game system
+	public const string OBJ_CANVAS = "Canvas";
 }
